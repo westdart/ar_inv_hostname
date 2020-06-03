@@ -1,6 +1,13 @@
-# anisble_inventory
+# ar_inv_hostname
 
 Create an Ansible Inventory with groups derived from host names
+For the ansible inventory, server hostnames are processed using a '-' 
+delimiter and associated groups are defined, e.g
+dc1-os-node-1 would result in the following groups:
+- dc1             Contains all hosts with 'dc1'
+- dc1_os          Contains all hosts with 'dc1-os'
+- dc1_os_node     Contains all hosts with 'dc1-os-node'
+- dc1_os_node_1   Contains only the host 'dc1-os-node-1'
 
 ## Requirements
 
@@ -35,7 +42,7 @@ The following variables should be provided through an encrypted source:
   tasks:
     - name: Generate AWS Infra
       include_role:
-        name: anisble_inventory
+        name: ar_inv_hostname
       vars:
         ar_inv_hostname_machines: "{{ server_hostname_list }}"
         ar_inv_hostname_dest_dir: "{{ dest_directory }}"

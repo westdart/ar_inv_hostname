@@ -33,7 +33,7 @@ def build_groups(servers):
 def ansible_inventory(servers):
     '''
     Args:
-        servers:  Array of server names
+        servers:  Array of server objects (see ar_aws_infra->filter_plugins->aws_machine_info.py)
     Returns: String representation of an 'ini' type ansible inventory
     '''
     groups = build_groups(servers)

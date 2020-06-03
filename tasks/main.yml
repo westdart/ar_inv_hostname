@@ -9,5 +9,5 @@
     content: "{{ ar_inv_hostname_machines | ansible_inventory }}"
     dest: "{{ ar_inv_hostname_dest_dir }}/hosts"
 
-- name: Refresh inventory to ensure seed hosts changes picked up
+- name: Refresh inventory to ensure changes picked up
   meta: refresh_inventory
